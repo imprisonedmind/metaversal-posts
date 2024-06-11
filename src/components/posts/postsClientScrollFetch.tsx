@@ -5,6 +5,7 @@ import { Post } from "@/lib/types";
 import { useInView } from "react-intersection-observer";
 import { GetAllPosts } from "@/app/actions";
 import Link from "next/link";
+import SpinnerWrapper from "@/components/loading/spinnerWrapper";
 
 interface PostsClientScrollFetchProps {
   initialData: Post[];
@@ -38,7 +39,7 @@ export const PostsClientScrollFetch: FC<PostsClientScrollFetchProps> = ({
         return <PostCard key={post.user.id + post.id} post={post} />;
       })}
       <div ref={ref} className={"flex w-full items-center justify-center pb-4"}>
-        {posts.length === 100 ? "All Loaded" : "Loading..."}
+        {posts.length === 100 ? "All Loaded" : <SpinnerWrapper />}
       </div>
     </div>
   );
