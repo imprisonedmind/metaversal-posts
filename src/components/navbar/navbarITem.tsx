@@ -1,11 +1,9 @@
-import {FC} from "react";
+import { FC } from "react";
 
 interface NavbarITemProps {
-	title: string;
+  title: string;
 }
 
-export const NavbarITem: FC<NavbarITemProps> = ({title}) => {
-	return (
-		<li>{title}</li>
-	);
+export const NavbarITem: FC<NavbarITemProps> = ({ title }) => {
+  return <li>{title}</li>;
 };
