@@ -1,9 +1,9 @@
 "use client";
 import { FC, useEffect, useState } from "react";
-import { StickyNavInsideWrapper } from "@/components/users/userPage/sickyNav/stickyNavInsideWrapper";
-import { StickyNavMainWrapper } from "@/components/users/userPage/sickyNav/stickyNavMainWrapper";
-import { StickyNavLeftSide } from "@/components/users/userPage/sickyNav/stickyNavLeftSide";
-import { StickyNavRightSide } from "@/components/users/userPage/sickyNav/stickyNavRightSide";
+import { StickyNavMainWrapper } from "@/components/sickyNav/stickyNavMainWrapper";
+import { StickyNavInsideWrapper } from "@/components/sickyNav/stickyNavInsideWrapper";
+import { StickyNavLeftSide } from "@/components/sickyNav/stickyNavLeftSide";
+import { StickyNavRightSide } from "@/components/sickyNav/stickyNavRightSide";
 
 interface UserStickyNavProps {
   name: string;
@@ -11,7 +11,7 @@ interface UserStickyNavProps {
   author?: string;
 }
 
-export const UserStickyNav: FC<UserStickyNavProps> = ({
+export const StickyNav: FC<UserStickyNavProps> = ({
   name,
   postsLength,
   author,

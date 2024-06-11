@@ -1,6 +1,6 @@
 import { Fragment, ReactNode } from "react";
-import { UserStickyNav } from "@/components/users/userPage/sickyNav/userStickyNav";
 import { GetPost } from "@/app/actions";
+import { StickyNav } from "@/components/sickyNav/stickyNav";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ export default async function Layout({
 
   return (
     <Fragment>
-      <UserStickyNav name={data.title} author={data.user.name} />
+      <StickyNav name={data.title} author={data.user.name} />
       {children}
     </Fragment>
   );
