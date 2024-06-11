@@ -8,8 +8,6 @@ interface PostProps {
 export default async function Page({ params: { id } }: PostProps) {
   const data = await GetPost(parseInt(id));
 
-  console.log(data);
-
   return (
     <div className={"flex flex-col gap-8 px-4"}>
       <div className={`flex flex-col gap-1`}>
