@@ -15,7 +15,7 @@ export const UserNameInitialsCombo: FC<UseNameInitialsComboProps> = ({
   isLink = false,
 }) => {
   return (
-    <Fragment>
+    <div className={"flex flex-row gap-4"}>
       <UserInitials name={user.name} small={small} />
       <UsernameAndName
         id={user.id}
@@ -23,6 +23,6 @@ export const UserNameInitialsCombo: FC<UseNameInitialsComboProps> = ({
         username={user.username}
         isLink={isLink}
       />
-    </Fragment>
+    </div>
   );
 };

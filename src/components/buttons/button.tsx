@@ -1,17 +1,23 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 interface ButtonProps {
   callBack: () => void;
   title: string;
+  style?: string;
+  icon?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = ({ callBack, title }) => {
+export const Button: FC<ButtonProps> = ({ callBack, title, style, icon }) => {
   return (
     <div
       onClick={callBack}
-      className={"flex h-fit cursor-pointer rounded-md bg-green-500 p-1 px-2"}
+      className={`
+        ${style} 
+        flex h-fit cursor-pointer items-center gap-1 rounded-md bg-green-500 p-1 px-2
+      `}
     >
-      <p className={"text-sm text-neutral-50"}>{title}</p>
+      {icon && icon}
+      <p className={"w-max text-sm text-neutral-50"}>{title}</p>
     </div>
   );
 };

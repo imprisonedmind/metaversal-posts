@@ -14,6 +14,7 @@ export default async function UserPosts({ posts }: UserPostsProps) {
             key={post.userId + post.userId}
             hideUserCard={true}
             post={post}
+            canDelete={true}
           />
         );
       })}
