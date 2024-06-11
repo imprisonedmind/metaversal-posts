@@ -1,6 +1,6 @@
 export default function Spinner() {
   return (
-    <div className={"m-auto flex h-[90svh] w-full justify-center"}>
+    <div className={"m-auto flex w-full justify-center"}>
       <div
         className={`
           relative m-auto h-20 w-20 animate-spin overflow-hidden rounded-full 

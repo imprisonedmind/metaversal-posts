@@ -13,7 +13,8 @@ export const Button: FC<ButtonProps> = ({ callBack, title, style, icon }) => {
       onClick={callBack}
       className={`
         ${style} 
-        flex h-fit cursor-pointer items-center gap-1 rounded-md bg-green-500 p-1 px-2
+        flex h-fit w-fit cursor-pointer items-center gap-1 rounded-md bg-green-500 p-1 
+        px-2
       `}
     >
       {icon && icon}
