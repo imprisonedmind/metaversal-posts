@@ -2,9 +2,9 @@ import { UserHeroImage } from "@/components/users/userPage/userHeroImage";
 import { Suspense } from "react";
 import SpinnerWrapper from "@/components/loading/spinnerWrapper";
 import UserPosts from "@/components/users/userPage/userPosts";
-import { UserStickyNav } from "@/components/users/userPage/sickyNav/userStickyNav";
 import { UserDetailArea } from "@/components/users/userPage/userDetailArea";
 import { GetSingleUser, GetUserPosts } from "@/app/actions";
+import { StickyNav } from "@/components/sickyNav/stickyNav";
 
 export interface UserProps {
   params: { id: string };
@@ -16,7 +16,7 @@ export default async function User({ params: { id } }: UserProps) {
 
   return (
     <div>
-      <UserStickyNav name={user.name} postsLength={posts.length} />
+      <StickyNav name={user.name} postsLength={posts.length} />
       <UserHeroImage id={id} />
       <div className={"flex flex-col"}>
         <UserDetailArea user={user} />
