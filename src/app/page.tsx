@@ -1,12 +1,14 @@
-import Navbar from "@/components/navbar/navbar";
-import UsersWrapper from "@/components/users/usersWrapper";
-import { Fragment } from "react";
+import { GetAllPosts } from "@/lib/fetchHelpers";
+import { PostCard } from "@/components/posts/postCard";
 
-export default function Home() {
+export default async function Home() {
+  const data = await GetAllPosts();
+
   return (
-    <Fragment>
-      <Navbar />
-      <UsersWrapper />
-    </Fragment>
+    <div className={`divide-y divide-neutral-100`}>
+      {data.map((post, index) => {
+        return <PostCard key={post.id + post.userId} post={post} />;
+      })}
+    </div>
   );
 }
