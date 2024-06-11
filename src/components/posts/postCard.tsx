@@ -18,7 +18,9 @@ export const PostCard: FC<PostCardProps> = async ({
         <p className={"capitalize"}>{post.title}</p>
         <p className={"line-clamp-2 text-sm text-neutral-500"}>{post.body}</p>
       </div>
-      {!hideUserCard && <UserCard user={post.user} small={true} />}
+      {!hideUserCard && (
+        <UserCard user={post.user} small={true} isLink={true} />
+      )}
     </div>
   );
 };

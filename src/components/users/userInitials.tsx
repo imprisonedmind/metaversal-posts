@@ -8,7 +8,7 @@ interface UserInitialsProps {
 
 export const UserInitials: FC<UserInitialsProps> = ({ name, small }) => {
   return (
-    <div className={"flex items-center justify-center"}>
+    <div className={"relative flex items-center justify-center"}>
       <div
         className={`
           ${

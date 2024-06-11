@@ -15,7 +15,7 @@ export const UserCardLink: FC<UserCardLinkProps> = ({ user }) => {
         flex cursor-pointer flex-row items-center gap-4 p-4 hover:bg-neutral-50
       `}
     >
-      <UserNameInitialsCombo user={user} />
+      <UserNameInitialsCombo user={user} isLink={false} />
     </Link>
   );
 };
