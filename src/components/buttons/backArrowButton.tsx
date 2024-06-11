@@ -9,11 +9,16 @@ export default function BackArrowButton() {
     <div
       onClick={() => back()}
       className={`
-        group cursor-pointer rounded-full p-2 transition duration-75 ease-in-out 
-        hover:bg-neutral-50
+        group h-fit w-fit cursor-pointer rounded-full p-2 transition 
+        duration-75 ease-in-out hover:bg-green-500
       `}
     >
-      <FaArrowLeft className={"h-4 w-4 text-neutral-950"} />
+      <FaArrowLeft
+        className={`
+          h-4 w-4 text-neutral-950 transition duration-75 ease-in-out
+          group-hover:text-neutral-50
+        `}
+      />
     </div>
   );
 }
