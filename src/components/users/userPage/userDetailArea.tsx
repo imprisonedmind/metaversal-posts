@@ -5,8 +5,8 @@ import { User } from "@/lib/types";
 import UserClientButtons from "@/components/users/userPage/userClientButtons";
 import { UserIconText } from "@/components/users/userPage/userIconText";
 import { FaGlobeAmericas } from "react-icons/fa";
-import { FaMailchimp } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
+import { UserCompany } from "@/components/users/userPage/userCompany";
 
 interface UserDetailAreaProps {
   user: User;
@@ -45,6 +45,11 @@ export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
             />
           </div>
         </div>
+        <UserCompany
+          name={user.company.name}
+          bs={user.company.bs}
+          catchPhrase={user.company.catchPhrase}
+        />
       </section>
     </div>
   );
