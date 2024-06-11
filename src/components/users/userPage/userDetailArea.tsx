@@ -1,17 +1,20 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import { UserInitials } from "@/components/users/userInitials";
-import { Button } from "@/components/buttons/button";
 import { UsernameAndName } from "@/components/users/usernameAndName";
 import { User } from "@/lib/types";
-import { FaBell } from "react-icons/fa6";
-import { NotificationsButton } from "@/components/buttons/notificationsButton";
 import UserClientButtons from "@/components/users/userPage/userClientButtons";
+import { UserIconText } from "@/components/users/userPage/userIconText";
+import { FaGlobeAmericas } from "react-icons/fa";
+import { FaMailchimp } from "react-icons/fa6";
+import { IoMail } from "react-icons/io5";
 
 interface UserDetailAreaProps {
   user: User;
 }
 
 export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
+  console.log(user);
+
   return (
     <div className={"px-4"}>
       <section className={"flex h-14 justify-between"}>
@@ -28,6 +31,19 @@ export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
             name={user.name}
             username={user.username}
           />
+          <div className={"flex flex-row gap-4"}>
+            <UserIconText
+              target={"_blank"}
+              link={`https://${user.website}`}
+              icon={<FaGlobeAmericas className={"h-3 w-3"} />}
+              title={user.website}
+            />
+            <UserIconText
+              link={`mailto:${user.email}`}
+              icon={<IoMail className={"h-3 w-3"} />}
+              title={user.email}
+            />
+          </div>
         </div>
       </section>
     </div>
