@@ -3,6 +3,9 @@ import { UserInitials } from "@/components/users/userInitials";
 import { Button } from "@/components/buttons/button";
 import { UsernameAndName } from "@/components/users/usernameAndName";
 import { User } from "@/lib/types";
+import { FaBell } from "react-icons/fa6";
+import { NotificationsButton } from "@/components/buttons/notificationsButton";
+import UserClientButtons from "@/components/users/userPage/userClientButtons";
 
 interface UserDetailAreaProps {
   user: User;
@@ -15,9 +18,7 @@ export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
         <span className={"-mt-1 w-fit !scale-[2] pl-6"}>
           <UserInitials name={user.name} />
         </span>
-        <span className={"self-center"}>
-          <Button title={"Follow"} />
-        </span>
+        <UserClientButtons />
       </section>
 
       <section className={"flex items-center justify-between"}>

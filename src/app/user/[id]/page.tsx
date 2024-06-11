@@ -1,8 +1,8 @@
 import { GetSingleUser, GetUserPosts } from "@/lib/fetchHelpers";
-import { UserStickyNav } from "@/components/users/userPage/userStickyNav";
 import { UserHeroImage } from "@/components/users/userPage/userHeroImage";
 import { UserDetailArea } from "@/components/users/userPage/userDetailArea";
 import { UserPosts } from "@/components/users/userPage/userPosts";
+import { UserStickyNav } from "@/components/users/userPage/sickyNav/userStickyNav";
 
 export interface UserProps {
   params: { id: string };
