@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'picsum.photos',
         port: '',
         pathname: '/**',
+      }, {
+        protocol: 'https',
+        hostname: 'media2.giphy.com',
+        port: '',
+        pathname: '/**',
       },
     ],
   },

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { RiAdminFill } from "react-icons/ri";
 
 export default function Navbar() {
-  const { users, id } = useParams();
+  const { id } = useParams();
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +39,7 @@ export default function Navbar() {
     >
       <ul className={"flex flex-row "}>
         <NavbarITem title={"Posts"} active={pathname == "/"} />
-        <NavbarITem title={"Users"} active={users != null} />
+        <NavbarITem title={"Users"} active={pathname.includes("users")} />
       </ul>
       <div
         className={`
