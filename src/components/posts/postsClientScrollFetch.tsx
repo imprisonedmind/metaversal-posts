@@ -36,7 +36,7 @@ export const PostsClientScrollFetch: FC<PostsClientScrollFetchProps> = ({
       {posts.map((post, index) => {
         return <PostCard key={post.id + post.userId} post={post} />;
       })}
-      <div ref={ref} className={"mx-auto pb-4"}>
+      <div ref={ref} className={"flex w-full items-center justify-center pb-4"}>
         {posts.length === 100 ? "All Loaded" : "Loading..."}
       </div>
     </div>
