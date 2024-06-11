@@ -1,3 +1,5 @@
+Check out the [Demo](https://metaversal-take-home.vercel.app/) hosted on Vercel.
+
 ## Getting Started
 First, install required dependencies (_I like bun_)
 
@@ -28,7 +30,7 @@ bun start
 npm start
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the 
-production build result.
+production build result. 
 
 ## Ideas and Explanation
 * App Directory - Server first implementation
