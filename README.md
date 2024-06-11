@@ -40,5 +40,7 @@ production build result.
   * Re-fetched on useRef view handler
 * User profile hero images use blurData optimizations
 * Results cached by default using Next.js server + fetch
+* Components marked with red are _admin capabilities_
+  * Ideally hidden or show under auth role
 
 
