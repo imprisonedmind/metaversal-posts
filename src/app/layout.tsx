@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Metaversal Take Home</title>
+      </head>
       <body className={`${inter.className} bg-neutral-50`}>
         <MainWrapper>
           <Navbar />
