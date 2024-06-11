@@ -8,12 +8,10 @@ import { Post, User } from "@/lib/types";
  * */
 export async function GetAllPosts(page: number = 1, limit: number = 10) {
   const url = process.env.NEXT_PUBLIC_POSTS_API!;
-
   const res = await fetch(url);
 
   if (res.ok) {
     let posts = (await res.json()) as Post[];
-
     posts = posts.sort(() => Math.random() - 0.5);
 
     const start = (page - 1) * limit;
