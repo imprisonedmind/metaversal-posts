@@ -30,6 +30,26 @@ export async function GetAllPosts(page: number = 1, limit: number = 10) {
   }
 }
 
+export async function GetPost(id: number) {
+  const url = process.env.NEXT_PUBLIC_POSTS_API!;
+  const res = await fetch(`${url}?id=${id}`);
+
+  if (res.ok) {
+    const post = (await res.json()) as Post[];
+
+    const postWithUser = await Promise.all(
+      post.map(async (postItem) => {
+        const user = await GetSingleUser(postItem.userId);
+        return { ...postItem, user };
+      }),
+    );
+
+    return postWithUser[0] as Post;
+  } else {
+    throw Error("No post with that id");
+  }
+}
+
 export async function GetUsers() {
   const url = process.env.NEXT_PUBLIC_USERS_API!;
   const res = await fetch(url);

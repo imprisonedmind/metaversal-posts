@@ -7,12 +7,14 @@ import { StickyNavRightSide } from "@/components/users/userPage/sickyNav/stickyN
 
 interface UserStickyNavProps {
   name: string;
-  postsLength: number;
+  postsLength?: number;
+  author?: string;
 }
 
 export const UserStickyNav: FC<UserStickyNavProps> = ({
   name,
   postsLength,
+  author,
 }) => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,7 +38,11 @@ export const UserStickyNav: FC<UserStickyNavProps> = ({
   return (
     <StickyNavMainWrapper scrolled={scrolled}>
       <StickyNavInsideWrapper scrolled={scrolled}>
-        <StickyNavLeftSide name={name} postsLength={postsLength} />
+        <StickyNavLeftSide
+          name={name}
+          postsLength={postsLength}
+          author={author}
+        />
         <StickyNavRightSide scrolled={scrolled} />
       </StickyNavInsideWrapper>
     </StickyNavMainWrapper>

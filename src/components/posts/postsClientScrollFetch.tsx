@@ -1,9 +1,10 @@
 "use client";
-import { FC, Fragment, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { PostCard } from "@/components/posts/postCard";
 import { Post } from "@/lib/types";
 import { useInView } from "react-intersection-observer";
 import { GetAllPosts } from "@/app/actions";
+import Link from "next/link";
 
 interface PostsClientScrollFetchProps {
   initialData: Post[];
@@ -34,7 +35,7 @@ export const PostsClientScrollFetch: FC<PostsClientScrollFetchProps> = ({
   return (
     <div className={"divide-y divide-neutral-100"}>
       {posts.map((post, index) => {
-        return <PostCard key={post.id + post.userId} post={post} />;
+        return <PostCard post={post} />;
       })}
       <div ref={ref} className={"flex w-full items-center justify-center pb-4"}>
         {posts.length === 100 ? "All Loaded" : "Loading..."}

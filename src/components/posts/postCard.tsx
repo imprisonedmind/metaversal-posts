@@ -1,9 +1,11 @@
+"use client";
 import { FC } from "react";
 import { Post } from "@/lib/types";
 import { UserCard } from "@/components/users/userCard";
 import { TiCog } from "react-icons/ti";
 import { FaTrash } from "react-icons/fa6";
 import TrashButton from "@/components/buttons/trashButton";
+import { useRouter } from "next/navigation";
 
 interface PostCardProps {
   post: Post;
@@ -16,8 +18,13 @@ export const PostCard: FC<PostCardProps> = ({
   hideUserCard = false,
   canDelete = false,
 }) => {
+  const { push } = useRouter();
+
   return (
-    <div className={`${hideUserCard && "px-4"} flex flex-col gap-4 p-4`}>
+    <div
+      onClick={() => push(`/post/${post.id}`)}
+      className={`${hideUserCard && "px-4"} flex cursor-pointer flex-col gap-4 p-4`}
+    >
       <div className={"flex flex-col gap-1"}>
         <div className={"flex flex-row items-center justify-between"}>
           <p className={"capitalize"}>{post.title}</p>
