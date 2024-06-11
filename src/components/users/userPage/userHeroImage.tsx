@@ -1,23 +1,24 @@
-import { FC, Suspense } from "react";
+import { FC } from "react";
 import Image from "next/image";
+import { dynamicBlurDataUrl } from "@/lib/utilities";
 
 interface UserHeroImageProps {
   id: string;
 }
 
-export const UserHeroImage: FC<UserHeroImageProps> = ({ id }) => {
+export const UserHeroImage: FC<UserHeroImageProps> = async ({ id }) => {
+  const url = `https://picsum.photos/id/${id}/700/300`;
+  const blurDataUrl = await dynamicBlurDataUrl(url);
+
   return (
     <section className={"relative h-60 overflow-clip"}>
-      <div
-        className={
-          "absolute left-0 top-0 h-full w-full animate-pulse bg-neutral-300"
-        }
-      />
       <Image
-        src={`https://picsum.photos/id/${id}/700/300`}
         fill={true}
-        alt={"random image"}
         priority={true}
+        src={url}
+        placeholder={"blur"}
+        blurDataURL={blurDataUrl}
+        alt={"random image"}
         className={"z-5 object-cover"}
       />
     </section>
