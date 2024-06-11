@@ -10,9 +10,9 @@ interface UserDetailAreaProps {
 
 export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
   return (
-    <Fragment>
+    <div className={"px-4"}>
       <section className={"flex h-14 justify-between"}>
-        <span className={"-mt-1 w-fit !scale-[2] pl-8"}>
+        <span className={"-mt-1 w-fit !scale-[2] pl-6"}>
           <UserInitials name={user.name} />
         </span>
         <span className={"self-center"}>
@@ -29,6 +29,6 @@ export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
           />
         </div>
       </section>
-    </Fragment>
+    </div>
   );
 };

@@ -13,7 +13,7 @@ export const PostCard: FC<PostCardProps> = async ({
   hideUserCard = false,
 }) => {
   return (
-    <div className={`${hideUserCard && "px-0"} flex flex-col gap-4 p-4`}>
+    <div className={`${hideUserCard && "px-4"} flex flex-col gap-4 p-4`}>
       <div className={""}>
         <p className={"capitalize"}>{post.title}</p>
         <p className={"line-clamp-2 text-sm text-neutral-500"}>{post.body}</p>
