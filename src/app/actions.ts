@@ -36,7 +36,8 @@ export async function GetUsers() {
   const url = process.env.NEXT_PUBLIC_USERS_API!;
   const res = await fetch(url);
   if (res.ok) {
-    return (await res.json()) as User[];
+    const users = await res.json();
+    return users as User[];
   } else {
     throw Error(res.statusText);
   }
