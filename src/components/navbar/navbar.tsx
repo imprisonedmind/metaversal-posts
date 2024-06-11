@@ -31,9 +31,9 @@ export default function Navbar() {
   return (
     <div
       className={`
-        ${scrolled && "top-2 rounded-md drop-shadow-lg"}
-        sticky top-0 z-50 mt-4 border-b border-neutral-100 bg-neutral-50 p-4 
-        transition duration-150 ease-in-out
+        ${scrolled && "top-0 drop-shadow-lg md:top-2 md:rounded-md"}
+        sticky top-0 z-50 border-b border-neutral-100 bg-neutral-50 p-4 transition 
+        duration-150 ease-in-out md:mt-4
       `}
     >
       <ul className={"flex flex-row "}>

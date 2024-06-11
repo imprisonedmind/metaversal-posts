@@ -16,13 +16,17 @@ export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
   return (
     <div className={"px-4"}>
       <section className={"flex h-14 justify-between"}>
-        <span className={"-mt-1 w-fit !scale-[2] pl-6"}>
+        <span className={"-mt-1 w-fit !scale-[2] pl-4 md:pl-6"}>
           <UserInitials name={user.name} />
         </span>
         <UserClientButtons />
       </section>
 
-      <section className={"flex items-center justify-between"}>
+      <section
+        className={
+          "flex flex-col md:flex-row md:items-center md:justify-between"
+        }
+      >
         <div className={"flex flex-col gap-4"}>
           <UsernameAndName
             id={user.id}
