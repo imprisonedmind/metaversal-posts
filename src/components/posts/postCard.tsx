@@ -1,17 +1,13 @@
 import { FC } from "react";
 import { Post } from "@/lib/types";
 import { UserCard } from "@/components/users/userCard";
-import { GetSingleUser } from "@/lib/fetchHelpers";
 
 interface PostCardProps {
   post: Post;
   hideUserCard?: boolean;
 }
 
-export const PostCard: FC<PostCardProps> = async ({
-  post,
-  hideUserCard = false,
-}) => {
+export const PostCard: FC<PostCardProps> = ({ post, hideUserCard = false }) => {
   return (
     <div className={`${hideUserCard && "px-4"} flex flex-col gap-4 p-4`}>
       <div className={""}>

@@ -2,18 +2,16 @@ import { FC } from "react";
 import BackArrowButton from "@/components/buttons/backArrowButton";
 
 interface StickyLeftSideProps {
-  scrolled: boolean;
   name: string;
   postsLength: number;
 }
 
 export const StickyNavLeftSide: FC<StickyLeftSideProps> = ({
-  scrolled,
   name,
   postsLength,
 }) => {
   return (
-    <div className={`${scrolled && "translate-x-2"} flex flex-row gap-2`}>
+    <div className={"flex flex-row gap-2 pl-2 "}>
       <BackArrowButton />
       <div>
         <p>{name}</p>

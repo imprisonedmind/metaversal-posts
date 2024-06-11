@@ -13,8 +13,6 @@ interface UserDetailAreaProps {
 }
 
 export const UserDetailArea: FC<UserDetailAreaProps> = ({ user }) => {
-  console.log(user);
-
   return (
     <div className={"px-4"}>
       <section className={"flex h-14 justify-between"}>

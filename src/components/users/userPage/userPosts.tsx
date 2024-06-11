@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { PostCard } from "@/components/posts/postCard";
 import { Post } from "@/lib/types";
 
@@ -6,7 +5,7 @@ interface UserPostsProps {
   posts: Post[];
 }
 
-export const UserPosts: FC<UserPostsProps> = ({ posts }) => {
+export default async function UserPosts({ posts }: UserPostsProps) {
   return (
     <section className={"divide-y divide-neutral-100"}>
       {posts.map((post, index) => {
@@ -20,4 +19,4 @@ export const UserPosts: FC<UserPostsProps> = ({ posts }) => {
       })}
     </section>
   );
-};
+}

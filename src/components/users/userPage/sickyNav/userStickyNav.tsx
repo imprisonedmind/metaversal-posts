@@ -36,11 +36,7 @@ export const UserStickyNav: FC<UserStickyNavProps> = ({
   return (
     <StickyNavMainWrapper scrolled={scrolled}>
       <StickyNavInsideWrapper scrolled={scrolled}>
-        <StickyNavLeftSide
-          scrolled={scrolled}
-          name={name}
-          postsLength={postsLength}
-        />
+        <StickyNavLeftSide name={name} postsLength={postsLength} />
         <StickyNavRightSide scrolled={scrolled} />
       </StickyNavInsideWrapper>
     </StickyNavMainWrapper>

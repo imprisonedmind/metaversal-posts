@@ -1,5 +1,5 @@
-import { GetUsers } from "@/lib/fetchHelpers";
 import { UserCardLink } from "@/components/users/userCardLink";
+import { GetUsers } from "@/app/actions";
 
 export default async function Page() {
   const users = await GetUsers();
