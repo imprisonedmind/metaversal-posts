@@ -40,7 +40,13 @@ production build result.
   * Re-fetched on useRef view handler
 * User profile hero images use blurData optimizations
 * Results cached by default using Next.js server + fetch
-* Components marked with red are _admin capabilities_
   * Ideally hidden or show under auth role
+* Suspense boundaries are preferred over loading.tsx
+  * loading.tsx tends to show even when cached
+  * Suspense only loads on initial render
+* Adjust _admin mode_ via the user icon menu
+  * Components marked with red are _admin capabilities_
+  * stored isAdmin variable in localStorage and context
+* Modals & Menus using createPortal & context
 
 
