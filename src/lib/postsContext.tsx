@@ -2,12 +2,12 @@
 import React, { createContext, useContext, useState } from "react";
 
 type PostsContextValue = {
-  postsLength: number;
+  postsLength: number | boolean;
   setPostsLength: (length: number) => void;
 };
 
 const defaultValues: PostsContextValue = {
-  postsLength: 0,
+  postsLength: false,
   setPostsLength: () => {},
 };
 
@@ -16,7 +16,7 @@ const PostsContext = createContext<PostsContextValue>(defaultValues);
 export const usePostsContext = () => useContext(PostsContext);
 
 export const PostsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [postsLength, setPostsLength] = useState<number>(0);
+  const [postsLength, setPostsLength] = useState<number | boolean>(false);
 
   return (
     <PostsContext.Provider value={{ postsLength, setPostsLength }}>

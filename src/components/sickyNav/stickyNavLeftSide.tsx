@@ -19,10 +19,8 @@ export const StickyNavLeftSide: FC<StickyLeftSideProps> = ({
       <BackArrowButton />
       <div>
         <p className={"capitalize"}>{name}</p>
-        {postsLength ? (
+        {postsLength && (
           <p className={"text-xs text-neutral-500"}>{postsLength} posts</p>
-        ) : (
-          <p className={"text-xs text-neutral-500"}>posts</p>
         )}
         {author && (
           <p className={"text-xs capitalize text-neutral-500"}>{author}</p>
