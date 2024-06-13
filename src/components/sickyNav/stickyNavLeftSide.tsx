@@ -12,6 +12,7 @@ export const StickyNavLeftSide: FC<StickyLeftSideProps> = ({
   name,
   author,
 }) => {
+  // TODO: this is VERY HACKY! - not great...
   const { postsLength } = usePostsContext();
 
   return (

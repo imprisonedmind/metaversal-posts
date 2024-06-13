@@ -31,6 +31,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // TODO: do better with this modal, currently doesn't scroll with parent
   const handleModal = () => {
     isOpen ? closeModal() : openModal(<ProfileMenu />);
   };
