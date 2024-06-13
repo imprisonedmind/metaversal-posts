@@ -48,6 +48,7 @@ production build result.
   * Components marked with red are _admin capabilities_
   * stored isAdmin variable in localStorage and context
 * Modals & Menus using createPortal & context
+  * modals use same service but change location based on state & input
 
 ## Speed Insights
 ```bash
