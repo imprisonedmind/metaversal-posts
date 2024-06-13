@@ -10,19 +10,24 @@ export interface UserProps {
   params: { id: string };
 }
 
+const PostsWrapper = async ({ id }: { id: number }) => {
+  const posts = await GetUserPosts(id);
+
+  return <UserPosts posts={posts} />;
+};
+
 export default async function User({ params: { id } }: UserProps) {
   const user = await GetSingleUser(parseInt(id));
-  const posts = await GetUserPosts(parseInt(id));
 
   return (
     <div>
-      {/*<StickyNav name={user.name} postsLength={posts.length} />*/}
+      <StickyNav name={user.name} postsLength={10} />
       <UserHeroImage id={id} />
       <div className={"flex flex-col"}>
         <UserDetailArea user={user} />
         <div className={"mt-4 rounded-full border-t border-neutral-100"} />
         <Suspense fallback={<SpinnerWrapper />}>
-          <UserPosts posts={posts} />
+          <PostsWrapper id={parseInt(id)} />
         </Suspense>
       </div>
     </div>
