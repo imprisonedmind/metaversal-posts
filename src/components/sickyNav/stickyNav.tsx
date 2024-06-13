@@ -7,15 +7,10 @@ import { StickyNavRightSide } from "@/components/sickyNav/stickyNavRightSide";
 
 interface StickyNavProps {
   name: string;
-  postsLength?: number;
   author?: string;
 }
 
-export const StickyNav: FC<StickyNavProps> = ({
-  name,
-  postsLength,
-  author,
-}) => {
+export const StickyNav: FC<StickyNavProps> = ({ name, author }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,11 +33,7 @@ export const StickyNav: FC<StickyNavProps> = ({
   return (
     <StickyNavMainWrapper scrolled={scrolled}>
       <StickyNavInsideWrapper scrolled={scrolled}>
-        <StickyNavLeftSide
-          name={name}
-          postsLength={postsLength}
-          author={author}
-        />
+        <StickyNavLeftSide name={name} author={author} />
         <StickyNavRightSide scrolled={scrolled} />
       </StickyNavInsideWrapper>
     </StickyNavMainWrapper>
