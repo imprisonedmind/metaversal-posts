@@ -49,4 +49,39 @@ production build result.
   * stored isAdmin variable in localStorage and context
 * Modals & Menus using createPortal & context
 
+## Speed Insights
+```bash
+❯ httpstat https://metaversal-take-home.vercel.app/
+Connected to 76.76.21.98:443 from 192.168.10.181:49501
+
+HTTP/2 200
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 14
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Thu, 13 Jun 2024 20:31:52 GMT
+etag: "71f7336c182a687ce0209baed8f414e6"
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+x-matched-path: /
+x-vercel-cache: HIT
+x-vercel-id: cpt1::p25nl-1718310712782-b19bd768f508
+content-length: 27971
+
+
+  DNS Lookup   TCP Connection   TLS Handshake   Server Processing   Content Transfer
+[     7ms    |      48ms      |     60ms      |       75ms        |        9ms       ]
+             |                |               |                   |                  |
+    namelookup:7ms            |               |                   |                  |
+                        connect:55ms          |                   |                  |
+                                    pretransfer:115ms             |                  |
+                                                      starttransfer:190ms            |
+                                                                                 total:199ms
+
+speed_download: 136.7 KiB/s, speed_upload: 0.0 KiB/s
+```
+
 
