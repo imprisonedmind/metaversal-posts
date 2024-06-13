@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 type AdminContextValue = {
   isAdmin: boolean;
@@ -18,25 +19,21 @@ const AdminContext = createContext<AdminContextValue>(defaultValues);
 export const useAdminContext = () => useContext(AdminContext);
 
 export const AdminProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
-    if (typeof window != "undefined") {
-      const storedIsAdmin = localStorage.getItem("isAdmin");
-      return storedIsAdmin !== null ? storedIsAdmin === "true" : false;
-    } else {
-      return false;
-    }
-  });
+  const [localIsAdmin, setLocalIsAdmin] =
+    useLocalStorageState<boolean>("isAdmin");
+
+  const [isAdmin, setIsAdmin] = useState<boolean>(localIsAdmin == true);
 
   const makeAdmin = () => {
-    setIsAdmin(true);
+    setLocalIsAdmin(true);
   };
   const makeUser = () => {
-    setIsAdmin(false);
+    setLocalIsAdmin(false);
   };
 
   useEffect(() => {
-    localStorage.setItem("isAdmin", isAdmin.toString());
-  }, [isAdmin]);
+    setIsAdmin(localIsAdmin == true);
+  }, [localIsAdmin]);
 
   return (
     <AdminContext.Provider value={{ isAdmin, makeAdmin, makeUser }}>
