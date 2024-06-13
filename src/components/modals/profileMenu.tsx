@@ -1,19 +1,23 @@
 "use client";
 import { Button } from "@/components/buttons/button";
 import { useAdminContext } from "@/lib/adminContext";
-import { useModalContext } from "@/lib/modalContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProfileMenu() {
   const { isAdmin, makeAdmin, makeUser } = useAdminContext();
-  const { closeModal } = useModalContext();
+
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
 
-      if (scrollTop > 5) closeModal();
+      if (scrollTop > 5) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,10 +27,12 @@ export default function ProfileMenu() {
 
   return (
     <div
+      // TODO: fix the animation here
       className={`
-          absolute right-4 top-14 z-[500] flex h-fit w-fit flex-col rounded-md 
-          border border-neutral-200 bg-neutral-50 drop-shadow-xl
-        `}
+        ${scrolled ? " -right-4 top-16 " : "right-0 top-12"}
+        absolute z-[500] flex h-fit w-fit flex-col rounded-md border border-neutral-200 
+        bg-neutral-50 drop-shadow-xl transition duration-300 ease-in-out
+      `}
     >
       <div className={"p-x flex flex-row items-center px-4 py-2"}>
         <p className={"text-md"}>Settings</p>

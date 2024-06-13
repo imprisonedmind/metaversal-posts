@@ -1,17 +1,11 @@
 "use client";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useModalContext } from "@/lib/modalContext";
 
 export default function Modal() {
-  const { isOpen, openModal, closeModal, modalChildren } = useModalContext();
-  const [modal, setModal] = useState<HTMLElement | null>(null);
-
-  useEffect(() => {
-    if (typeof window != "undefined") {
-      setModal(document.getElementById("modal"));
-    }
-  }, []);
+  const { isOpen, openModal, closeModal, modalChildren, modal } =
+    useModalContext();
 
   useEffect(() => {
     const modalChildren = document.getElementById("modalChildren");

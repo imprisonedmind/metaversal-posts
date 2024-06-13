@@ -1,7 +1,7 @@
 "use client";
 import { NavbarITem } from "@/components/navbar/navbarITem";
 import { useParams, usePathname } from "next/navigation";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useModalContext } from "@/lib/modalContext";
 import { AdminProfileButton } from "@/components/buttons/adminProfileButton";
 import ProfileMenu from "@/components/modals/profileMenu";
@@ -10,7 +10,7 @@ export default function Navbar() {
   const { id } = useParams();
   const pathname = usePathname();
 
-  const { isOpen, openModal, closeModal } = useModalContext();
+  const { isOpen, openModal, closeModal, setModal } = useModalContext();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -31,9 +31,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // TODO: do better with this modal, currently doesn't scroll with parent
+  const admin = useRef(null);
+
   const handleModal = () => {
-    isOpen ? closeModal() : openModal(<ProfileMenu />);
+    if (isOpen) {
+      closeModal();
+    } else {
+      setModal(admin.current);
+      openModal(<ProfileMenu />);
+    }
   };
 
   if (id) return null;
@@ -51,7 +57,9 @@ export default function Navbar() {
           <NavbarITem title={"Posts"} active={pathname == "/"} />
           <NavbarITem title={"Users"} active={pathname.includes("users")} />
         </ul>
-        <AdminProfileButton callBack={() => handleModal()} />
+        <span className={"relative"} ref={admin}>
+          <AdminProfileButton callBack={() => handleModal()} />
+        </span>
       </div>
     </Fragment>
   );
