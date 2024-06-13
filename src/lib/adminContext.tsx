@@ -19,8 +19,12 @@ export const useAdminContext = () => useContext(AdminContext);
 
 export const AdminProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState<boolean>(() => {
-    const storedIsAdmin = localStorage.getItem("isAdmin");
-    return storedIsAdmin !== null ? storedIsAdmin === "true" : false;
+    if (typeof window != "undefined") {
+      const storedIsAdmin = localStorage.getItem("isAdmin");
+      return storedIsAdmin !== null ? storedIsAdmin === "true" : false;
+    } else {
+      return false;
+    }
   });
 
   const makeAdmin = () => {
