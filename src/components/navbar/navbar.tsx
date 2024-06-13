@@ -1,12 +1,16 @@
 "use client";
 import { NavbarITem } from "@/components/navbar/navbarITem";
 import { useParams, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { RiAdminFill } from "react-icons/ri";
+import { Fragment, useEffect, useState } from "react";
+import { useModalContext } from "@/lib/modalContext";
+import { AdminProfileButton } from "@/components/buttons/adminProfileButton";
+import ProfileMenu from "@/components/modals/profileMenu";
 
 export default function Navbar() {
   const { id } = useParams();
   const pathname = usePathname();
+
+  const { isOpen, openModal, closeModal } = useModalContext();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -27,28 +31,27 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleModal = () => {
+    isOpen ? closeModal() : openModal(<ProfileMenu />);
+  };
+
   if (id) return null;
 
   return (
-    <div
-      className={`
-        ${scrolled && "top-0 drop-shadow-lg md:top-2 md:rounded-md"}
-        sticky top-0 z-50 flex items-center justify-between border-b border-neutral-100 
-        bg-neutral-50 p-4 transition duration-150 ease-in-out md:mt-4
-      `}
-    >
-      <ul className={"flex flex-row "}>
-        <NavbarITem title={"Posts"} active={pathname == "/"} />
-        <NavbarITem title={"Users"} active={pathname.includes("users")} />
-      </ul>
+    <Fragment>
       <div
         className={`
-        flex cursor-pointer items-center justify-center rounded-full border 
-        border-neutral-50 bg-neutral-950 p-2 shadow-md
+        ${scrolled && "top-4 drop-shadow-lg md:top-2 md:rounded-md"}
+        sticky top-0 z-50 flex items-center justify-between border-b border-neutral-100 
+        bg-neutral-50 p-4 transition duration-150 ease-in-out
       `}
       >
-        <RiAdminFill className={"h-4 w-4 text-neutral-50"} />
+        <ul className={"flex flex-row "}>
+          <NavbarITem title={"Posts"} active={pathname == "/"} />
+          <NavbarITem title={"Users"} active={pathname.includes("users")} />
+        </ul>
+        <AdminProfileButton callBack={() => handleModal()} />
       </div>
-    </div>
+    </Fragment>
   );
 }

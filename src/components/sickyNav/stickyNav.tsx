@@ -5,13 +5,13 @@ import { StickyNavInsideWrapper } from "@/components/sickyNav/stickyNavInsideWra
 import { StickyNavLeftSide } from "@/components/sickyNav/stickyNavLeftSide";
 import { StickyNavRightSide } from "@/components/sickyNav/stickyNavRightSide";
 
-interface UserStickyNavProps {
+interface StickyNavProps {
   name: string;
   postsLength?: number;
   author?: string;
 }
 
-export const StickyNav: FC<UserStickyNavProps> = ({
+export const StickyNav: FC<StickyNavProps> = ({
   name,
   postsLength,
   author,
