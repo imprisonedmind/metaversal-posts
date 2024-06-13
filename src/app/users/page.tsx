@@ -1,7 +1,9 @@
 import { UserCardLink } from "@/components/users/userCardLink";
 import { GetUsers } from "@/app/actions";
+import { Suspense } from "react";
+import SpinnerWrapper from "@/components/loading/spinnerWrapper";
 
-export default async function Page() {
+const UsersWrapper = async () => {
   const users = await GetUsers();
 
   return (
@@ -10,5 +12,13 @@ export default async function Page() {
         return <UserCardLink key={user.name + user.id} user={user} />;
       })}
     </div>
+  );
+};
+
+export default function Page() {
+  return (
+    <Suspense fallback={<SpinnerWrapper />}>
+      <UsersWrapper />
+    </Suspense>
   );
 }

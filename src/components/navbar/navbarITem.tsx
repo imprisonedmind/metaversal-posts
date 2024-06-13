@@ -12,7 +12,7 @@ export const NavbarITem: FC<NavbarITemProps> = ({ title, active = false }) => {
   return (
     <li
       className={`
-        ${active && "bg-green-500 text-neutral-50"} 
+        ${active && "bg-gradient-to-t from-neutral-950 to-neutral-800 text-neutral-50"} 
         rounded-md p-1 px-2 text-sm
     `}
     >

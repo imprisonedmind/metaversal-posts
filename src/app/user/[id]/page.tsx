@@ -16,7 +16,7 @@ export default async function User({ params: { id } }: UserProps) {
 
   return (
     <div>
-      <StickyNav name={user.name} postsLength={posts.length} />
+      {/*<StickyNav name={user.name} postsLength={posts.length} />*/}
       <UserHeroImage id={id} />
       <div className={"flex flex-col"}>
         <UserDetailArea user={user} />
