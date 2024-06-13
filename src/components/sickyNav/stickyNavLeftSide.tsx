@@ -18,7 +18,7 @@ export const StickyNavLeftSide: FC<StickyLeftSideProps> = ({
     <div className={"flex flex-row gap-2 pl-2"}>
       <BackArrowButton />
       <div>
-        <p className={"capitalize"}>{name}</p>
+        <p className={"line-clamp-1 w-full capitalize"}>{name}</p>
         {postsLength && (
           <p className={"text-xs text-neutral-500"}>{postsLength} posts</p>
         )}
