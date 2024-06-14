@@ -3,7 +3,7 @@ import Image from "next/image";
 import { dynamicBlurDataUrl } from "@/lib/utilities";
 
 interface UserHeroImageProps {
-  id: string;
+  id: number;
 }
 
 export const UserHeroImage: FC<UserHeroImageProps> = async ({ id }) => {
