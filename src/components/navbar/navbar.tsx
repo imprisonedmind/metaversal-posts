@@ -48,9 +48,9 @@ export default function Navbar() {
     <Fragment>
       <div
         className={`
-        ${scrolled && "top-4 drop-shadow-lg md:top-2 md:rounded-md"}
-        sticky top-0 z-50 flex items-center justify-between border-b border-neutral-100 
-        bg-neutral-50 p-4 transition duration-150 ease-in-out
+        ${scrolled && "top-4 mx-4 drop-shadow-lg md:top-2 md:rounded-md"}
+        sticky top-0 z-50 flex transform-gpu items-center justify-between border-b 
+        border-neutral-100 bg-neutral-50 p-4 transition duration-150 ease-in-out
       `}
       >
         <ul className={"flex flex-row "}>

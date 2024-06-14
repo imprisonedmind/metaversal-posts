@@ -27,11 +27,11 @@ export default function ProfileMenu() {
 
   return (
     <div
-      // TODO: fix the animation here
       className={`
-        ${scrolled ? " -right-4 top-16 " : "right-0 top-12"}
-        absolute z-[500] flex h-fit w-fit flex-col rounded-md border border-neutral-200 
-        bg-neutral-50 drop-shadow-xl transition duration-300 ease-in-out
+        ${scrolled ? "translate-x-4 translate-y-16" : "-translate-x-12"}
+        absolute right-0 top-0 z-[500] flex h-fit w-fit transform flex-col rounded-md
+        border border-neutral-200 bg-neutral-50 drop-shadow-xl transition 
+        duration-300 ease-in-out
       `}
     >
       <div className={"p-x flex flex-row items-center px-4 py-2"}>
