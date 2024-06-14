@@ -10,7 +10,7 @@ export default function BackArrowButton() {
       onClick={() => back()}
       className={`
         group h-fit w-fit cursor-pointer rounded-full p-2 transition 
-        duration-75 ease-in-out hover:bg-green-500
+        duration-75 ease-in-out hover:bg-neutral-950
       `}
     >
       <FaArrowLeft
