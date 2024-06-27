@@ -3,6 +3,14 @@ import { GetUsers } from "@/app/actions";
 import { Suspense } from "react";
 import SpinnerWrapper from "@/components/loading/spinnerWrapper";
 
+export default function Page() {
+  return (
+    <Suspense fallback={<SpinnerWrapper />}>
+      <UsersWrapper />
+    </Suspense>
+  );
+}
+
 const UsersWrapper = async () => {
   const users = await GetUsers();
 
@@ -14,11 +22,3 @@ const UsersWrapper = async () => {
     </div>
   );
 };
-
-export default function Page() {
-  return (
-    <Suspense fallback={<SpinnerWrapper />}>
-      <UsersWrapper />
-    </Suspense>
-  );
-}
