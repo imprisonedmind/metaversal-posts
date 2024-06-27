@@ -11,8 +11,8 @@ import Modal from "@/components/modals/modal";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Metaversal Take Home",
-  description: "Take home coding challenge by Luke Stephens",
+  title: "Metaversal Posts",
+  description: "Post view and management dashboard",
 };
 
 export default function RootLayout({
