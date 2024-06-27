@@ -12,7 +12,10 @@ export default function TrashButton() {
 
   return (
     <div
-      onClick={() => openModal(<ConfirmModal title={"Are you sure?"} />)}
+      onClick={(event) => {
+        event.preventDefault();
+        openModal(<ConfirmModal title={"Are you sure?"} />);
+      }}
       className={`cursor-pointer rounded-md border border-neutral-200 bg-red-500 p-[5px]`}
     >
       <FaTrash className={"h-3 w-3 text-neutral-50"} />
